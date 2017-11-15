@@ -1,26 +1,48 @@
-package ee.eerikmagi.testtasks.eestienergia.weather_fetcher.model;
+package ee.eerikmagi.testtasks.eestienergia.weather_fetcher.model.datasource;
 
 import java.math.BigDecimal;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="station")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Station {
+	@XmlElement
 	private String name;
+	@XmlElement(name="wmocode")
 	private String wmoCode;
-	
+
+	@XmlElement
 	private String longitude;
+	@XmlElement
 	private String latitude;
-	
+
+	@XmlElement
 	private String phenomenon;
+	@XmlElement
 	private BigDecimal visibility;
+	@XmlElement
 	private int precipitations;
+	@XmlElement(name="airpressure")
 	private BigDecimal airPressure;
+	@XmlElement(name="relativehumidity")
 	private int relativeHumidity;
+	@XmlElement(name="airtemperature")
 	private BigDecimal airTemperature;
-	
+
+	@XmlElement(name="winddirection")
 	private int windDirection;
+	@XmlElement(name="windspeed")
 	private BigDecimal windSpeed;
+	@XmlElement(name="windspeedmax")
 	private BigDecimal windSpeedMax;
-	
+
+	@XmlElement(name="waterlevel")
 	private int waterLevel;
+	@XmlElement(name="watertemperature")
 	private BigDecimal waterTemperature;
 	
 	public String getName() {
