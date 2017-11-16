@@ -29,7 +29,7 @@ import ee.eerikmagi.testtasks.eestienergia.weather_fetcher.rest.json.StationsRes
 /**
  * Resource that handles API requests
  */
-@Path("api")
+@Path("")
 public class APIResource {
 	private static final Duration cacheLifetime = Duration.ofMinutes(20);
 	private static final FetcherCache<Observations, WeatherFetcher> weatherFetcher =
@@ -51,6 +51,7 @@ public class APIResource {
 		
 		List<UIStation> stations = obs.getStations().stream()
 			.map(station -> UIStation.fromStationBasic(station))
+			.sorted((a,b) -> a.getName().compareTo(b.getName()))
 			.collect(Collectors.toList());
 		
 		return Response.ok(

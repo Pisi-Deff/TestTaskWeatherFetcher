@@ -1,0 +1,30 @@
+* {
+	font-family: Courier, Arial;
+}
+
+.hidden {
+	display: none;
+}
+.small {
+	font-size: 70%;
+}
+
+.weatherReport {
+	margin-top: 20px;
+	border: 1px solid #eee;
+	background-color: #f8f8f8;
+}
+
+.weatherReport__header {
+	border-bottom: 1px solid #eee;
+	background-color: #f0f0f0;
+}
+
+.weatherReport__title {
+	margin: 0;
+}
+
+.weatherReport__header,
+.weatherReport__body {
+	padding: 10px;
+}

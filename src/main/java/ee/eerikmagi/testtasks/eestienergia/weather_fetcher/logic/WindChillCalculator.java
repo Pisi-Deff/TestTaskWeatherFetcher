@@ -31,10 +31,14 @@ public class WindChillCalculator {
 		double velocity = Math.pow(windSpeed.doubleValue(), VELOCITY_EXPONENT_CONST);
 		double temp = temperature.doubleValue();
 		
-		return
+		double windChill =
 				STANDALONE_ADDED_CONST
 				+ TEMPERATURE_MULTIPLIER_CONST * temp
 				- VELOCITY_MULTIPLIER_CONST * velocity
 				+ BOTH_MULTIPLIER_CONST * temp * velocity;
+		
+		windChill = ((double) Math.round(windChill * 100.0)) / 100.0;
+		
+		return windChill;
 	}
 }

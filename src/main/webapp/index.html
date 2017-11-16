@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Weather Fetcher Thing Yay!</title>
+
+	<link rel="stylesheet" href="./weatherfetcher.css">
+</head>
+
+<body>
+	<header>
+		<h2>Welcome to the Weather Fetcher thing!</h2>
+	</header>
+	
+	<article id="loading">
+		<h2>Loading...</h2>
+	</article>
+	
+	<article id="search" class="hidden">
+		<form id="searchForm" action="javascript:;" method="POST">
+			<label>Station name:
+				<input list="stations" name="station" placeholder="Start typing station name..."
+					size="50"
+				/>
+			</label>
+			<datalist id="stations"></datalist>
+			<button type="submit">Show</button>
+		</form>
+		
+		<div id="weatherReport"></div>
+	</article>
+	
+	<footer></footer>
+	
+	<script id="template_weatherReport" type="text/x-handlebars-template">
+		<section class="weatherReport">
+			<div class="weatherReport__header">
+				<h2 class="weatherReport__title">
+					{{name~}}
+					{{#if wmoCode~}}
+						<span class="small"> ({{wmoCode}})</span>
+					{{~/if}}
+				</h2>
+				
+				<div>
+					N{{#if latitude}}{{latitude}}{{else}}?{{/if}}
+					W{{#if longitude}}{{longitude}}{{else}}?{{/if}}
+				</div>
+			</div>
+			
+			<div class="weatherReport__body">
+				<div>Phenomenon: {{#if details.phenomenon}}{{details.phenomenon}}{{else}}None{{/if}}<div>
+				<div>Visibility: {{#if details.visibility}}{{details.visibility}}{{else}}Unknown{{/if}}<div>
+				<div>Precipitations: {{#if details.precipitations}}{{details.precipitations}}{{else}}0{{/if}}<div>
+				<div>Air Pressure: {{#if details.airPressure}}{{details.airPressure}}{{else}}Unknown{{/if}}<div>
+				<div>Relative Humidity: {{#if details.relativeHumidity}}{{details.relativeHumidity}}{{else}}0{{/if}}<div>
+				<div>Air Temperature: {{#if details.airTemperature}}{{details.airTemperature}} °C{{else}}Unknown{{/if}}<div>
+				<div>Wind Direction: {{#if details.windDirection}}{{details.windDirection}}°{{else}}Unknown{{/if}}<div>
+				<div>Wind Speed: {{#if details.windSpeed}}{{details.windSpeed}} m/s{{else}}Unknown{{/if}}<div>
+				<div>Maximal Wind Speed: {{#if details.windSpeedMax}}{{details.windSpeedMax}}{{else}}Unknown{{/if}}<div>
+				<div>Wind Chill: {{#if details.windChill}}{{details.windChill}} °C{{else}}Unknown{{/if}}<div>
+				<div>Water Level: {{#if details.waterLevel}}{{details.waterLevel}}{{else}}Unknown{{/if}}<div>
+				<div>Water Temperature: {{#if details.waterTemperature}}{{details.waterTemperature}} °C{{else}}Unknown{{/if}}<div>
+			</div>
+		</section>
+	</script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+	<script src="./weatherfetcher.js"></script>
+</body>
+
+</html>
