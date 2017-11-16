@@ -19,6 +19,10 @@
 	<article id="loading">
 		<h2>Loading...</h2>
 	</article>
+		
+	<article id="unexpectedError" class="hidden errorText">
+		Unexpected error
+	</article>
 	
 	<article id="search" class="hidden">
 		<form id="searchForm" action="javascript:;" method="POST">
@@ -30,6 +34,10 @@
 			<datalist id="stations"></datalist>
 			<button type="submit">Show</button>
 		</form>
+		
+		<div id="unknownStation" class="hidden errorText">
+			No station found with the name "<span class="stationName"></span>".
+		</div>
 		
 		<div id="weatherReport"></div>
 	</article>

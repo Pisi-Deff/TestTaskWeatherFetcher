@@ -8,6 +8,9 @@
 .small {
 	font-size: 70%;
 }
+.errorText {
+	color: red;
+}
 
 .weatherReport {
 	margin-top: 20px;
