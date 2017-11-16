@@ -18,14 +18,14 @@ public class WindChillCalculator {
 	 * 
 	 * @param temperature
 	 * @param windSpeed
-	 * @return
+	 * @return calculated wind chill temperature, or null if input data is insufficient
 	 */
-	public static double calculate(
+	public static Double calculate(
 		BigDecimal temperature,
 		BigDecimal windSpeed
 	) {
 		if (temperature == null || windSpeed == null) {
-			throw new IllegalArgumentException("Arguments must not be null");
+			return null;
 		}
 		
 		double velocity = Math.pow(windSpeed.doubleValue(), VELOCITY_EXPONENT_CONST);

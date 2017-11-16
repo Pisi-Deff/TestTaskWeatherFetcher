@@ -19,7 +19,7 @@ public class UIStationDetails {
 	private int waterLevel;
 	private BigDecimal waterTemperature;
 	
-	private double windChill;
+	private Double windChill;
 	
 	public String getPhenomenon() {
 		return phenomenon;
@@ -109,10 +109,10 @@ public class UIStationDetails {
 		return this;
 	}
 	
-	public double getWindChill() {
+	public Double getWindChill() {
 		return windChill;
 	}
-	public UIStationDetails setWindChill(double windChill) {
+	public UIStationDetails setWindChill(Double windChill) {
 		this.windChill = windChill;
 		return this;
 	}
