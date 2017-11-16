@@ -71,7 +71,7 @@
 				<version>9.4.4.v20170414</version>
 				<configuration>
 					<webApp>
-						<contextPath>/invoice_system</contextPath>
+						<contextPath>/</contextPath>
 					</webApp>
 					<connectors>
 						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
