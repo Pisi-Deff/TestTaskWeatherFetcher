@@ -20,11 +20,15 @@ public class WeatherFetcher implements IFetcher<Observations> {
 			UriBuilder.fromUri(ENDPOINT_URL).build()
 		);
 		
-		Observations observations = target
-			.request()
-			.accept(MediaType.TEXT_XML)
-			.get(Observations.class);
-		
-		return observations;
+		try {
+			Observations observations = target
+				.request()
+				.accept(MediaType.TEXT_XML)
+				.get(Observations.class);
+			
+			return observations;
+		} catch (Throwable t) {
+			throw new FetchException("Unable to fetch weather", t);
+		}
 	}
 }
